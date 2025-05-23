@@ -7,7 +7,7 @@ pub struct GCEvent {
     pub time: Option<DateTime<FixedOffset>>,
     pub gc_type: GcType,
     pub has_pause: bool,
-    pub pause_tile_ms: Option<f64>,
+    pub pause_time_ms: Option<f64>,
     pub eden_before: Option<f64>,
     pub eden_after: Option<f64>,
     pub eden_total: Option<f64>,

@@ -8,5 +8,7 @@ name = "gca"
 path = "src/main.rs"
 
 [dependencies]
+anyhow = "1.0.98"
 chrono = {version = "0.4.41", features = ["serde"]}
+regex = "1.11.1"
 serde = {version = "1.0.219", features = ["derive"]}
