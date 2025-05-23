@@ -10,5 +10,6 @@ path = "src/main.rs"
 [dependencies]
 anyhow = "1.0.98"
 chrono = {version = "0.4.41", features = ["serde"]}
+plotters = "0.3.7"
 regex = "1.11.1"
 serde = {version = "1.0.219", features = ["derive"]}
