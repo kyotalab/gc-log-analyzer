@@ -1,5 +1,6 @@
-use crate::model::GCEvent;
+use crate::model::{GCEvent, GcType};
 use plotters::prelude::*;
+use std::collections::HashMap;
 
 pub fn draw_heap_chart(
     events: &[GCEvent],
@@ -301,4 +302,20 @@ pub fn draw_combined_chart(
         .draw()?;
 
     Ok(())
+}
+
+pub fn count_gc_types(events: &[GCEvent]) -> HashMap<GcType, usize> {
+    let mut counts = HashMap::new();
+    for event in events {
+        *counts.entry(event.gc_type.clone()).or_insert(0) += 1;
+    }
+    counts
+}
+
+pub fn print_gc_type_summary(counts: &HashMap<GcType, usize>) {
+    println!("GCイベント種別別の発生回数");
+    println!("────────────────────────");
+    for (gc_type, count) in counts {
+        println!("{:<15} : {:>4} 回", format!("{:?}", gc_type), count);
+    }
 }
